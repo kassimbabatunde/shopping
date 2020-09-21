@@ -76,9 +76,9 @@ Using Docker
     - docker-compose up
 
 
-    .. note::
-       Depending on how you install the docker, if get an error
-       [Permission Denide 13] run you command with `sudo`
+.. note::
+    Depending on how you install the docker, if get an error
+    [Permission Denide 13] run you command with `sudo docker-compose  up`
        
 This should build without any error
 
