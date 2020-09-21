@@ -1,0 +1,9 @@
+{% extends 'base.html'%}
+{% block title %} Add Gift to List {% endblock %}
+{%block content %}
+<form action="{% url 'add_gift' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" , value="Add to list" />
+</form>
+{% endblock %}

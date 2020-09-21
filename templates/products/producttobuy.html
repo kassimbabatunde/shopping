@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block title %} Buy Gift {% endblock %}
+{%block content %}
+{% if product %}
+<form action="{% url 'buy_product' %}" method="POST">
+    {% csrf_token %}
+    <p>
+        <label for="id_name">Name:</label><br>
+        <input id="id_name" type="text" name="name" maxlength="200" value="{{product.name}}"><br>
+    </p>
+    <p>
+        <label for="id_brand">Brand:</label><br>
+        <input id="id_brand" type="text" name="brand" maxlength="200" value="{{product.brand}}"><br>
+    </p>
+    <p>
+        <label for="id_price">Price:</label><br>
+        <input id="id_price" type="number" name="price" value="{{product.price}}"><br>
+    </p>
+    <p>
+        <label for="id_stock">Select Quantity:</label><br>
+        <input id="id_stock" type="number" name="stock" value="{{product.in_stock_quantity}}"><br>
+    </p>
+    <input type="submit" value="Buy Now">
+</form> {% else %} <p>No Product in Stock</p>
+{% endif %}
+{% endblock %}

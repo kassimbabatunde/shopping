@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block title %} Purchase Gifts {% endblock %}
+{%block content %}
+<div class="products">
+    {%if products %}
+    <table id="gift_table" class="table table-striped">
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Brands</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.in_stock_quantity }}</td>
+            <td>{{ product.price }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>{{ noproduct|safe }}</p>
+    {% endif %}
+</div>
+{% endblock %}

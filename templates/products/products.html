@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% block title %} Available Gifts {% endblock %}
+{%block content %}
+<div class="products">
+    {%if products %}
+    <table id="gift_table" class="table table-striped">
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Brands</th>
+            <th>Price</th>
+            <th>Quantity in Stock</th>
+            <th>Delete Item</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.in_stock_quantity }}</td>
+            <td><input class='radio' name='000202' id='unblock_"+z+"' type='radio'></td>
+            <td><input type='button' name='buy_now' value='Buy Now' class="use-address"></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div id="hide_form_holder" class="hide_form"></div>
+
+    <script type="text/javascript" lang="javascript">
+        $(document).ready(function () {
+            $('#gift_table').DataTable();
+        });
+    </script>
+    <script type="text/javascript" lang="javascript">
+        let product = [];
+        $(".use-address").click(function () {
+            $(this).closest('tr').find('td').each(function () {
+                var textval = $(this).text();
+                product.push(textval);
+
+            });
+            console.log(product);
+            buy_gift(product);
+        });
+    </script>
+    <input type="submit" value="Delete Item" onclick="proc()">
+    {% else %}
+    <p>{{notvalid|safe}}</p>
+    {% endif %}
+</div>
+{% endblock %}

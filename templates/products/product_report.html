@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block title %} Product Report {% endblock %}
+{%block content %}
+<div class="products">
+    {%if reports %}
+    <table id="gift_table" class="table table-striped">
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Brands</th>
+            <th>Price</th>
+            <th>Quantity in Stock</th>
+            <th>Quantity Sold </th>
+        </tr>
+        {% for product in reports %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.in_stock_quantity }}</td>
+            <td>{{ product.bought_item }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p> {{ invalid|safe }} </p>
+    {% endif %}
+</div>
+{% endblock %}
