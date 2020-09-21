@@ -71,7 +71,10 @@ Using Docker
 
 2. Once this done, a docker-compose.yaml file is created to help you run the application
 
-3. Run the following command to start the docker image:
+3. Run the following command to start the docker image::
+
+    - docker-compose up
+
 
     .. note::
        Depending on how you install the docker, if get an error
